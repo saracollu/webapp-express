@@ -27,3 +27,21 @@ app.get('/movies', (req, res) => {
         }
     });
 });
+
+
+//rotta show
+
+app.get('/movies/:id', (req, res) => {
+    db.query('SELECT * FROM movies WHERE id=?', [req.params.id], (err, results) => {
+        if (err) {
+            console.error('Errore durante la query:', err.message);
+            res.status(500).send('Errore interno del server');
+        } else {
+            if (results.length === 0) {
+                res.status(404).send('Film non trovato');
+            } else {
+                res.json(results[0]);
+            }
+        }
+    });
+});
