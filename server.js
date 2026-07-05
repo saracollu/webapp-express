@@ -1,6 +1,11 @@
 const express = require('express');
+const db = require('./db/controller');
+
 const app = express();
 const port = process.env.API_SERVER_PORT || 3000;
+
+
+
 
 app.get('/', (req, res) => {
     res.send('Ciao Mondo');
@@ -9,3 +14,4 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
     console.log(`Server in ascolto sulla porta http://localhost:${port}`);
 });
+
