@@ -15,3 +15,15 @@ app.listen(port, () => {
     console.log(`Server in ascolto sulla porta http://localhost:${port}`);
 });
 
+//rotta index
+
+app.get('/movies', (req, res) => {
+    db.query('SELECT * FROM movies', (err, results) => {
+        if (err) {
+            console.error('Errore durante la query:', err.message);
+            res.status(500).send('Errore interno del server');
+        } else {
+            res.json(results);
+        }
+    });
+});
