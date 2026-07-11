@@ -41,7 +41,20 @@ const show = (req, res) => {
     });
 };
 
+// store book (placeholder)
+const store = (req, res) => {
+    res.status(501).send({ error: true, message: 'Not Implemented' });
+};
+
+//store review (placeholder)
+const storeReview = (req, res) => {
+    res.status(501).send({ error: true, message: 'Not Implemented' });
+};
+
+
 module.exports = {
     index,
-    show
+    show,
+    store,
+    storeReview
 };
